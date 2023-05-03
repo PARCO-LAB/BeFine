@@ -1,0 +1,6 @@
+kafka-python
+paho-mqtt
+pandas
+pip-chill
+pykalman
+sklearn
