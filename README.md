@@ -6,12 +6,12 @@ A centralized aggregator collects the pose information through a shared communic
 
 
 ## Repository overview
-This repository contains both the edge node code and the centralized aggregator code, respectively in *edge_node_mqtt* and *aggregator*. The first must be executed on an edge device, i.e., an Nvidia Jetson, the second on any server. The two devices must be connected to the same communication network. A mqtt broker (e.g. _mosquitto_) is required on a device in the network for message exchange.
+This repository contains both the edge node code and the centralized aggregator code, respectively in *edge_node_mqtt* and *aggregator*. The first must be executed on edge devices, i.e. _Nvidia Jetson_, the second on a centralized server. The devices must be connected to the same communication network. A mqtt broker (e.g. [_mosquitto_](https://mosquitto.org)) is required on a device in the network for messages exchange.
 
 ## Requirements
 
 The *edge* node requires:
-* jetpack4.6.1 
+* [jetpack4.6.1](https://developer.nvidia.com/embedded/jetpack-sdk-461)
 * [trt_pose](https://github.com/NVIDIA-AI-IOT/trt_pose) @ a89b422
 * [json](https://github.com/nlohmann/json) @ db78ac1
 * [cmake ](https://cmake.org) >= 3.12.2
