@@ -13,7 +13,7 @@ This repository contains both the edge node code and the centralized aggregator 
 The *edge* node requires:
 * jetpack4.6.1 
 * trtpose 
-* json 
+* [json](https://github.com/nlohmann/json) 
 * cmake 
 * torch 
 * torchvision
