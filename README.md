@@ -17,7 +17,7 @@ The *edge* node requires:
 * [cmake ](https://cmake.org) >= 3.12.2
 * [torch](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch) == 1.7.0
 * [torchvision](https://github.com/pytorch/vision) == 0.8.1 
-* [paho mqtt](https://github.com/eclipse/paho.mqtt.cpp)
+* [paho mqtt](https://github.com/eclipse/paho.mqtt.cpp) == 1.3.8
 * [OpenCV](https://github.com/JetsonHacksNano/buildOpenCV.git) 
 * [Stereolabs Zed SDK](https://www.stereolabs.com/developers/release/)
 
