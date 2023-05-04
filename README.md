@@ -20,6 +20,7 @@ The *edge* node requires:
 * [paho mqtt](https://github.com/eclipse/paho.mqtt.cpp)
 * [OpenCV](https://github.com/JetsonHacksNano/buildOpenCV.git) 
 * [Stereolabs Zed SDK](https://www.stereolabs.com/developers/release/)
+
 To install dependencies for the aggregator, on the centralized server:
 
 ```
