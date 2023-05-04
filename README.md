@@ -37,7 +37,7 @@ On the server:
 ```
 cd aggregator/
 
-python3 multip_aggregator.py
+python3 multip_aggregator.py -c <conf_file>
 ```
 
 On the edge node:
@@ -48,6 +48,6 @@ mkdir build
 cd build
 cmake ..
 make -j
-./pub_kp3d 
+./pub_kp3d -fconf <conf_file>
 ```
 
