@@ -1,6 +1,7 @@
-# BeFine :  Real-time Multi-camera 3D Human Pose Estimation for Industrial Applications
+# BeFine :  Real-time Distributed 3D Human Pose Estimation for Industrial Applications
 
-Human pose estimation (HPE) is a key component for an increasing number of human-cyber-physical systems. Nevertheless, applying such a computer vision technique in real industrial scenarios is a challenging task. Although solutions based on camera networks have shown great potential to overcome the occlusion limitations, real-time synchronization among multiple and networked cameras is still an open problem. Even more challenging is guaranteeing high accuracy when the HPE software has to be offloaded on resource-constrained embedded devices and the resulting data flows have to cross shared communication networks (e.g., Ethernet or WiFi) to be merged on a centralized unit. In this article we address this challenge by presenting a real-time HPE platform in which the 3D poses are estimated through a network of edge computing systems. A centralized aggregator collects the information through MQTT and merges them, in real time, through a pipeline of filtering, clustering and association algorithms. It addresses network communication issues (e.g., delay and bandwidth variability) through a two-levels synchronization, and supports both single and multi-person pose estimation. The article presents the results with a real-case of study (i.e., HPE for human-machine interaction in an intelligent manufacturing line), in which the platform accuracy and scalability are compared with state of the art approaches and with a marker-based infra-red motion capture system.
+There is an increasing interest in exploiting human pose estimation (HPE) software in human-machine interaction systems. Nevertheless, adopting such a computer vision application in real industrial scenarios is challenging. To overcome occlusion limitations, it requires multiple cameras, which in turn require multiple, distributed, and synchronized HPE software nodes running on resource-constrained edge devices. We address this challenge by presenting a real-time distributed 3D HPE platform, which consists of a set of 3D HPE software nodes on edge devices (i.e., one per camera) to redundantly extrapolate the human pose from different points of view.
+A centralized aggregator collects the pose information through a shared communication network and merges them, in real time, through a pipeline of filtering, clustering and association algorithms. It addresses network communication issues (e.g., delay and bandwidth variability) through a two-levels synchronization, and supports both single and multi-person pose estimation. We present the evaluation results with a real-case of study (i.e., HPE for human-machine interaction in an intelligent manufacturing line), in which the platform accuracy and scalability are compared with state of the art approaches and with a marker-based infra-red motion capture system.
 
 
 
@@ -11,12 +12,14 @@ This repository contains both the edge node code and the centralized aggregator 
 
 The *edge* node requires:
 * jetpack4.6.1 
-* trtpose 
-* json 
-* cmake 
-* torch 
-* torchvision
-* paho mqtt
+* [trt_pose](https://github.com/NVIDIA-AI-IOT/trt_pose) @ a89b422
+* [json](https://github.com/nlohmann/json) @ db78ac1
+* [cmake ](https://cmake.org) >= 3.12.2
+* [torch](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch) == 1.7.0
+* [torchvision](https://github.com/pytorch/vision) == 0.8.1 
+* [paho mqtt](https://github.com/eclipse/paho.mqtt.cpp) == 1.3.8
+* [OpenCV](https://github.com/JetsonHacksNano/buildOpenCV.git) 
+* [Stereolabs Zed SDK](https://www.stereolabs.com/developers/release/)
 
 To install dependencies for the aggregator, on the centralized server:
 
@@ -24,6 +27,8 @@ To install dependencies for the aggregator, on the centralized server:
 cd BeFine/aggregator/
 pip3 install -r requirements.txt
 ```
+
+In addition edge nodes and the server aggregator need to be time synchronized with an NTP client (e.g. chrony) connected to a common NTP server (e.g. the server aggregator itself). In addition, the edge nodes take in input a configuration file with mqtt network configuration, topic, intrinsics and extrinsics matrix for common world reference. Finally, the server aggregator also need a configuration file with mqtt network configuration, input topics and aggregation settings.
 
 ## Execute the demo
 

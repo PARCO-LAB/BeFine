@@ -33,9 +33,6 @@ else(DEBUG)
     message(STATUS "Disable DEBUG mode")
 endif(DEBUG)
 
-set(BUILD_TEST    OFF CACHE BOOL "Enable tests generation")
-set(BUILD_UTILITY ON CACHE BOOL "Enable utilities generation")
-
 # enable_testing()
 # include(CTest)
 
@@ -245,13 +242,6 @@ foreach(PUB ${PUBS})
     target_link_libraries(${PUB} ${LIBRARY_NAME})
 endforeach()
 
-if (BUILD_TEST)
-    add_subdirectory(test)
-endif()
-
-if(BUILD_UTILITY)
-    add_subdirectory(utility)
-endif()
 
 # ------------------------------------------------------------------------------
 # Install directives.

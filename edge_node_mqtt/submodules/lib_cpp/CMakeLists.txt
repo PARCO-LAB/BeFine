@@ -45,10 +45,6 @@ else(DEBUG)
     message(STATUS "Disable DEBUG mode")
 endif(DEBUG)
 
-# Tests and examples
-set(BUILD_TEST OFF CACHE BOOL "Enable tests generation")
-set(BUILD_EXAMPLE ON CACHE BOOL "Enable examples generation")
-
 # Add include all libraries option.
 set(LIB_ALL OFF CACHE BOOL "Include all dependencies")
 add_definitions(-DLIB_ALL=${LIB_ALL})
@@ -502,18 +498,6 @@ foreach(INCLUDE ${INCLUDES})
 endforeach()
 
 target_link_libraries(${LIBRARY_NAME} ${DEPENDENCIES})
-
-# ------------------------------------------------------------------------------
-# Add the tests.
-if (BUILD_TEST)
-    add_subdirectory(test)
-endif()
-
-# ------------------------------------------------------------------------------
-# Add the examples.
-if (BUILD_EXAMPLE)
-    add_subdirectory(example)
-endif()
 
 # ------------------------------------------------------------------------------
 # Install directives.
