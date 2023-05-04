@@ -26,6 +26,8 @@ cd BeFine/aggregator/
 pip3 install -r requirements.txt
 ```
 
+In addition edge nodes and the server aggregator need to be time synchronized with an NTP client (e.g. chrony) connected to a common NTP server (e.g. the server aggregator itself). In addition, the edge nodes take in input a configuration file with mqtt network configuration, topic, intrinsics and extrinsics matrix for common world reference. Finally, the server aggregator also need a configuration file with mqtt network configuration, input topics and aggregation settings.
+
 ## Execute the demo
 
 On the server:
