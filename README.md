@@ -12,13 +12,14 @@ This repository contains both the edge node code and the centralized aggregator 
 
 The *edge* node requires:
 * jetpack4.6.1 
-* trtpose 
+* [trt_pose](https://github.com/NVIDIA-AI-IOT/trt_pose) 
 * [json](https://github.com/nlohmann/json) 
-* cmake 
-* torch 
-* torchvision
-* paho mqtt
-
+* [cmake ](https://cmake.org) >= 3.12.2
+* [torch](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch) >= 1.7.0
+* [torchvision](https://github.com/pytorch/vision)
+* [paho mqtt](https://github.com/eclipse/paho.mqtt.cpp)
+* [OpenCV](https://github.com/JetsonHacksNano/buildOpenCV.git) 
+* [Stereolabs Zed SDK](https://www.stereolabs.com/developers/release/)
 To install dependencies for the aggregator, on the centralized server:
 
 ```
